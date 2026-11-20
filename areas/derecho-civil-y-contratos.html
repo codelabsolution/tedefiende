@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derecho civil y contratos · Tedefiende.cl · Julián Herrera Martínez, Abogado</title>
+  <meta name="description" content="Contratos, incumplimientos, arriendos y cobro de deudas en Chile, explicado en simple. Abogado Julián Herrera Martínez, Concepción.">
+  <meta name="theme-color" content="#0d1d45">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2313378f'/%3E%3Crect width='100' height='38' fill='%23d6a84c'/%3E%3Ctext x='50' y='84' font-size='44' font-weight='700' text-anchor='middle' fill='%23fff' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=PT+Serif:wght@700&family=Oswald:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body id="arriba">
+  <!-- Página de área de práctica. Los textos se editan directamente aquí.
+       El encabezado, el pie y el asistente son los mismos de index.html. -->
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Emblema: balanza de la justicia (relleno) -->
+    <symbol id="emblema" viewBox="0 0 120 120">
+      <circle cx="60" cy="11" r="6" fill="currentColor"/>
+      <rect x="57" y="16" width="6" height="84" fill="currentColor"/>
+      <path d="M12 36 Q60 22 108 36" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 36 L8 72 M20 36 L32 72 M100 36 L88 72 M100 36 L112 72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M4 72 H36 A16 13 0 0 1 4 72 Z M84 72 H116 A16 13 0 0 1 84 72 Z" fill="currentColor"/>
+      <path d="M36 110 H84 L78 100 H42 Z" fill="currentColor"/>
+    </symbol>
+    <!-- Íconos de línea -->
+    <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-civil" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9.5 21V10M14.5 21V10M19 21V10M2 10l10-6 10 6z"/></symbol>
+    <symbol id="i-familia" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-documento" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </svg>
+
+
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor encabezado__contenido">
+
+      <!-- Logo de la marca, hecho con texto (se ve nítido en cualquier pantalla) -->
+      <a href="../index.html#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+        <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <ul class="menu__lista">
+          <li><a href="../index.html#inicio" class="menu__enlace">Inicio</a></li>
+          <li><a href="../index.html#areas" class="menu__enlace activo">Áreas de práctica</a></li>
+          <li><a href="../index.html#videos" class="menu__enlace">Videos</a></li>
+          <li><a href="../index.html#sobre-mi" class="menu__enlace">Sobre mí</a></li>
+          <li><a href="../index.html#contacto" class="menu__enlace">Contacto</a></li>
+        </ul>
+        <!-- Solo se ve dentro del menú del teléfono -->
+        <a href="../index.html#contacto" class="boton boton--oro menu__cta">Agenda una consulta</a>
+      </nav>
+
+      <!-- Teléfono destacado (escritorio) -->
+      <a href="tel:+56956299095" class="encabezado__telefono">
+        <span class="encabezado__telefono-texto">Llamada en línea</span>
+        <span class="encabezado__telefono-numero">+56 9 5629 9095</span>
+      </a>
+
+      <!-- Botón del menú (teléfono y tablet) -->
+      <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Portada del artículo -->
+    <section class="articulo-portada seccion--azul">
+      <!-- Foto de portada: guárdela en img/areas/civil.jpg (si no existe, la portada queda solo en azul) -->
+      <div class="articulo-portada__foto" style="background-image: url('../img/areas/civil.jpg')" aria-hidden="true"></div>
+      <div class="contenedor articulo-portada__contenido">
+        <nav class="migas" aria-label="Estás en">
+          <a href="../index.html">Inicio</a> <span aria-hidden="true">/</span>
+          <a href="../index.html#areas">Áreas de práctica</a> <span aria-hidden="true">/</span>
+          <span aria-current="page">Derecho civil y contratos</span>
+        </nav>
+        <p class="antetitulo antetitulo--claro">Área de práctica</p>
+        <h1 class="articulo-portada__titulo">Derecho civil y contratos</h1>
+        <p class="articulo-portada__bajada">Contratos bien hechos, qué hacer cuando no se cumplen, problemas de arriendo y cobro de deudas: tus derechos según la ley chilena.</p>
+        <p class="articulo-portada__meta">Información revisada en noviembre de 2026 · Lectura de 6 min</p>
+      </div>
+    </section>
+
+    <!-- Índice lateral + artículo -->
+    <div class="contenedor articulo-rejilla">
+      <aside class="articulo-indice">
+        <div class="articulo-indice__fijo">
+          <p class="articulo-indice__titulo">En esta página</p>
+          <ul>
+            <li><a href="#contratos">¿Por qué revisar un contrato antes de firmarlo?</a></li>
+            <li><a href="#incumplimiento">¿Qué hacer si la otra parte no cumple?</a></li>
+            <li><a href="#arriendos">Problemas de arriendo: la ley «Devuélveme mi casa»</a></li>
+            <li><a href="#deudas">¿Cómo se cobra una deuda?</a></li>
+            <li><a href="#por-que-un-abogado">¿En qué te puede ayudar un abogado?</a></li>
+          </ul>
+          <a href="https://wa.me/56956299095" class="boton boton--oro boton--ancho" target="_blank" rel="noopener">Consultar mi caso</a>
+        </div>
+      </aside>
+
+      <article class="articulo">
+          <div class="articulo__seccion" id="contratos" data-revelar>
+            <h2>¿Por qué revisar un contrato antes de firmarlo?</h2>
+<p>Un contrato es una ley para quienes lo firman: obliga a cumplir lo que dice, aunque después una de las partes cambie de opinión. Por eso, revisar un contrato <strong>antes de firmarlo</strong> es mucho más barato que resolver un conflicto después.</p>
+<p>Un abogado revisa que el contrato diga lo que realmente acordaste, que no tenga cláusulas abusivas o confusas, y que establezca qué pasa si alguien no cumple (plazos, multas y garantías).</p>
+          </div>
+
+          <div class="articulo__seccion" id="incumplimiento" data-revelar>
+            <h2>¿Qué hacer si la otra parte no cumple?</h2>
+<p>Cuando una de las partes no cumple un contrato, la ley permite a la otra elegir entre <strong>exigir que se cumpla</strong> o pedir que el contrato <strong>se deje sin efecto</strong> (resolución), y en ambos casos solicitar una <strong>indemnización de los perjuicios</strong> sufridos.</p>
+<div class="dato-clave"><p class="dato-clave__titulo">Importante</p>
+<p>Las acciones para cobrar o reclamar <strong>tienen plazos</strong> (prescripción). Si dejas pasar demasiado tiempo, puedes perder el derecho a exigir judicialmente. No esperes para consultar.</p></div>
+          </div>
+
+          <div class="articulo__seccion" id="arriendos" data-revelar>
+            <h2>Problemas de arriendo: la ley «Devuélveme mi casa»</h2>
+<p>Los arriendos de inmuebles urbanos se rigen por la <strong>Ley 18.101</strong>. En 2022, la <strong>Ley 21.461</strong>, conocida como <strong>«Devuélveme mi casa»</strong>, creó un procedimiento más rápido (llamado monitorio) para cobrar arriendos impagos y recuperar la propiedad.</p>
+<ul>
+  <li>En la demanda se indican las rentas y gastos comunes adeudados.</li>
+  <li>Si el juez la acoge, el arrendatario tiene <strong>diez días corridos</strong> para pagar todo lo adeudado o para oponerse.</li>
+  <li>Si paga la totalidad dentro del plazo, el procedimiento termina; si no paga ni se opone, se avanza hacia la restitución del inmueble.</li>
+  <li>Aunque no exista contrato escrito, la ley establece reglas para determinar cuál era la renta.</li>
+</ul>
+<p>Si eres arrendatario, también tienes derechos: por ejemplo, a que se respeten los plazos legales y a defenderte si la demanda no corresponde.</p>
+          </div>
+
+          <div class="articulo__seccion" id="deudas" data-revelar>
+            <h2>¿Cómo se cobra una deuda?</h2>
+<p>El camino para cobrar depende del documento que respalda la deuda. Algunos documentos, como un <strong>pagaré</strong>, un <strong>cheque</strong> o una sentencia, permiten iniciar un <strong>juicio ejecutivo</strong>, que es más rápido porque parte de la base de que la deuda existe. Si no hay un documento así, se debe demostrar la deuda en un juicio.</p>
+<p>Antes de demandar, muchas veces conviene intentar una <strong>negociación o un acuerdo de pago</strong>. Un abogado te ayuda a elegir la estrategia más eficiente según tu caso.</p>
+          </div>
+
+          <div class="articulo__seccion" id="por-que-un-abogado" data-revelar>
+            <h2>¿En qué te puede ayudar un abogado?</h2>
+<p>Redactar y revisar contratos, negociar con la otra parte, enviar una carta de cobranza formal, demandar o defenderte en un juicio civil. El abogado Julián Herrera Martínez evalúa tu caso y te propone el camino más claro para resolverlo.</p>
+          </div>
+
+          <div class="articulo__fuentes">
+            <p class="articulo__fuentes-titulo">Fuentes oficiales consultadas</p>
+            <ul>
+              <li><a href="https://www.chileatiende.gob.cl/fichas/107794-devuelveme-mi-casa-ley-n-21-461" target="_blank" rel="noopener">ChileAtiende: Devuélveme mi Casa (Ley N° 21.461)</a></li>
+              <li><a href="https://www.bcn.cl/portal/leyfacil/recurso/ley-de-arriendo" target="_blank" rel="noopener">Ley Fácil (BCN): Ley de arriendo</a></li>
+              <li><a href="https://www.bcn.cl/portal/leyfacil/recurso/procedimiento-simple-para-desalojo-de-arrendatarios" target="_blank" rel="noopener">Ley Fácil (BCN): Procedimiento simple para desalojo de arrendatarios</a></li>
+              <li><a href="https://www.bcn.cl/leychile/navegar?idNorma=29526" target="_blank" rel="noopener">Ley 18.101 sobre arrendamiento de predios urbanos (BCN)</a></li>
+            </ul>
+          </div>
+
+          <p class="articulo__aviso">
+            Esta página entrega información general sobre la ley chilena y no constituye asesoría legal.
+            Cada caso es distinto: para saber qué aplica en tu situación, consulta con un abogado.
+          </p>
+      </article>
+    </div>
+
+    <!-- Llamado a la acción -->
+    <section class="articulo-cta seccion--azul">
+      <div class="contenedor articulo-cta__contenido" data-revelar>
+        <h2 class="articulo-cta__titulo">¿Necesitas ayuda con <span>tu caso</span>?</h2>
+        <p>La llamada en línea de 10:00 a 12:00 horas es gratis. Cuéntanos tu situación y te orientamos.</p>
+        <div class="articulo-cta__botones">
+          <a href="../index.html#contacto" class="boton boton--oro">Agenda tu consulta</a>
+          <a href="tel:+56956299095" class="boton boton--contorno-claro">Llamar al +56 9 5629 9095</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Otras áreas -->
+    <section class="seccion seccion--piedra">
+      <div class="contenedor">
+        <p class="antetitulo">Sigue leyendo</p>
+        <h2 class="titulo relacionadas__titulo">Otras áreas de práctica</h2>
+        <div class="relacionadas">
+          <a href="derecho-de-familia.html" class="relacionada"><span class="relacionada__titulo">Derecho de familia</span><span class="relacionada__mas">Leer más →</span></a>
+          <a href="herencias-y-testamentos.html" class="relacionada"><span class="relacionada__titulo">Herencias y testamentos</span><span class="relacionada__mas">Leer más →</span></a>
+          <a href="defensa-legal-integral.html" class="relacionada"><span class="relacionada__titulo">Defensa legal integral</span><span class="relacionada__mas">Leer más →</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__columnas">
+      <div>
+        <a href="../index.html#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+          <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+        </a>
+        <p class="pie__descripcion">Defensa legal profesional y confiable. Abogado Julián Herrera Martínez.</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Navegación</p>
+        <ul class="pie__lista">
+          <li><a href="../index.html#inicio">Inicio</a></li>
+          <li><a href="../index.html#areas">Áreas de práctica</a></li>
+          <li><a href="../index.html#videos">Videos</a></li>
+          <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a href="../index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="pie__titulo">Contacto</p>
+        <ul class="pie__lista">
+          <li>Caupolicán 567, Concepción Centro</li>
+          <li><a href="tel:+56956299095">+56 9 5629 9095</a></li>
+          <li><a href="mailto:contacto@tedefiende.cl">contacto@tedefiende.cl</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61574104022977" target="_blank" rel="noopener">Facebook Tedefiende.cl</a></li>
+          <li><a href="https://www.tiktok.com/@estudiojuridicobiobio" target="_blank" rel="noopener">TikTok @estudiojuridicobiobio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__legal">
+      <!-- El año se completa solo con js/main.js -->
+      <p>&copy; <span id="anio"></span> Tedefiende.cl · Julián Herrera Martínez. Todos los derechos reservados.</p>
+      <a href="#arriba">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <div class="asistente" id="asistente">
+    <!-- Globo de saludo que aparece a los pocos segundos -->
+    <button class="asistente__burbuja" id="asistenteBurbuja" type="button">
+      Hola 👋 ¿Te ayudo con tu caso?
+    </button>
+
+    <!-- Ventana del chat -->
+    <section class="asistente__panel" id="asistentePanel" role="dialog" aria-label="Asistente virtual de Tedefiende.cl" aria-hidden="true">
+      <header class="asistente__cabecera">
+        <span class="asistente__avatar" aria-hidden="true"><svg><use href="#emblema"/></svg></span>
+        <div class="asistente__identidad">
+          <p class="asistente__nombre">Asistente Tedefiende</p>
+          <p class="asistente__estado">Responde al instante</p>
+        </div>
+        <button class="asistente__accion" id="asistenteReiniciar" type="button" aria-label="Empezar de nuevo" title="Empezar de nuevo">↻</button>
+        <button class="asistente__accion" id="asistenteCerrar" type="button" aria-label="Cerrar asistente" title="Cerrar">✕</button>
+      </header>
+
+      <div class="asistente__mensajes" id="asistenteMensajes" aria-live="polite"></div>
+      <div class="asistente__opciones" id="asistenteOpciones"></div>
+
+      <form class="asistente__entrada" id="asistenteFormulario" autocomplete="off">
+        <label class="solo-lectores" for="asistenteTexto">Escribe tu mensaje</label>
+        <input type="text" id="asistenteTexto" placeholder="Escribe tu mensaje…" maxlength="300">
+        <button type="submit" aria-label="Enviar mensaje">
+          <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </button>
+      </form>
+
+      <p class="asistente__aviso">
+        Asistente automático: entrega información general y no reemplaza la asesoría de un abogado.
+        No guardamos tus datos.
+      </p>
+    </section>
+
+    <!-- Botón flotante que abre y cierra el chat -->
+    <button class="asistente__lanzador" id="asistenteLanzador" type="button" aria-label="Abrir asistente virtual" aria-expanded="false" aria-controls="asistentePanel">
+      <svg class="asistente__lanzador-emblema" aria-hidden="true"><use href="#emblema"/></svg>
+      <span class="asistente__lanzador-cerrar" aria-hidden="true">✕</span>
+    </button>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/asistente.js"></script>
+</body>
+</html>

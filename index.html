@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tedefiende.cl · Julián Herrera Martínez, Abogado en Concepción</title>
+  <meta name="description" content="Defensa legal profesional y confiable en Concepción. Derecho civil y contratos, familia, herencias y testamentos. Abogado Julián Herrera Martínez.">
+  <meta name="theme-color" content="#0d1d45">
+
+  <!-- Ícono de la pestaña: "TE" dorado sobre azul -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2313378f'/%3E%3Crect width='100' height='38' fill='%23d6a84c'/%3E%3Ctext x='50' y='84' font-size='44' font-weight='700' text-anchor='middle' fill='%23fff' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+
+  <!-- Activa las animaciones solo si JavaScript funciona -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <!-- Tipografías: Oswald (títulos), Inter (texto), PT Serif (sección de familia),
+       Satisfy (el ".cl" del logo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=PT+Serif:wght@700&family=Oswald:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       ÍCONOS (se definen una vez y se usan con <use href="#...">)
+       ===================================================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Emblema: balanza de la justicia (relleno) -->
+    <symbol id="emblema" viewBox="0 0 120 120">
+      <circle cx="60" cy="11" r="6" fill="currentColor"/>
+      <rect x="57" y="16" width="6" height="84" fill="currentColor"/>
+      <path d="M12 36 Q60 22 108 36" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 36 L8 72 M20 36 L32 72 M100 36 L88 72 M100 36 L112 72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M4 72 H36 A16 13 0 0 1 4 72 Z M84 72 H116 A16 13 0 0 1 84 72 Z" fill="currentColor"/>
+      <path d="M36 110 H84 L78 100 H42 Z" fill="currentColor"/>
+    </symbol>
+    <!-- Íconos de línea -->
+    <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-civil" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9.5 21V10M14.5 21V10M19 21V10M2 10l10-6 10 6z"/></symbol>
+    <symbol id="i-familia" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-documento" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </svg>
+
+
+  <!-- =====================================================
+       1. ENCABEZADO FIJO
+       ===================================================== -->
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor encabezado__contenido">
+
+      <!-- Logo de la marca, hecho con texto (se ve nítido en cualquier pantalla) -->
+      <a href="#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+        <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <ul class="menu__lista">
+          <li><a href="#inicio" class="menu__enlace">Inicio</a></li>
+          <li><a href="#areas" class="menu__enlace">Áreas de práctica</a></li>
+          <li><a href="#videos" class="menu__enlace">Videos</a></li>
+          <li><a href="#sobre-mi" class="menu__enlace">Sobre mí</a></li>
+          <li><a href="#contacto" class="menu__enlace">Contacto</a></li>
+        </ul>
+        <!-- Solo se ve dentro del menú del teléfono -->
+        <a href="#contacto" class="boton boton--oro menu__cta">Agenda una consulta</a>
+      </nav>
+
+      <!-- Teléfono destacado (escritorio) -->
+      <a href="tel:+56956299095" class="encabezado__telefono">
+        <span class="encabezado__telefono-texto">Llamada en línea</span>
+        <span class="encabezado__telefono-numero">+56 9 5629 9095</span>
+      </a>
+
+      <!-- Botón del menú (teléfono y tablet) -->
+      <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         2. PORTADA (HERO)
+         ===================================================== -->
+    <section class="portada" id="inicio">
+      <!-- Foto de fondo. Para cambiarla, reemplace img/julian-tribunal.jpg
+           (ideal: foto horizontal de 2000 px de ancho o más) -->
+      <div class="portada__fondo">
+        <img src="img/julian-tribunal.jpg" alt="El abogado Julián Herrera Martínez alegando en un tribunal" width="2752" height="1536" fetchpriority="high">
+      </div>
+
+      <div class="contenedor portada__contenido">
+        <div class="portada__texto">
+          <svg class="portada__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+          <p class="portada__nombre">Julián Herrera Martínez · Abogado</p>
+
+          <h1 class="portada__titulo">
+            <span>Defensa legal</span>
+            <span class="t-oro">profesional</span>
+            <span class="t-chico">y confiable</span>
+          </h1>
+
+          <p class="portada__frase">Tu tranquilidad comienza con una asesoría experta.</p>
+
+          <div class="portada__acciones">
+            <a href="#contacto" class="boton boton--oro">Agenda tu consulta</a>
+            <a href="https://wa.me/56956299095" class="boton boton--contorno-claro" target="_blank" rel="noopener">
+              <svg class="icono" aria-hidden="true"><use href="#i-chat"/></svg> WhatsApp
+            </a>
+          </div>
+
+          <p class="portada__nota">
+            <svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg>
+            Llamadas en línea <strong>gratis</strong> de 10:00 a 12:00 horas
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PRESENTACIÓN (franja azul con emblema)
+         ===================================================== -->
+    <section class="seccion seccion--blanca presentacion">
+      <div class="contenedor presentacion__rejilla">
+        <div class="presentacion__texto" data-revelar>
+          <svg class="emblema-grande" aria-hidden="true"><use href="#emblema"/></svg>
+          <p>
+            Si enfrentas un problema legal, necesitas a alguien que te escuche, te explique
+            tus opciones con claridad y defienda tus intereses con firmeza. En
+            <strong>Tedefiende.cl</strong>, el abogado <strong>Julián Herrera Martínez</strong>
+            te acompaña en cada etapa del proceso.
+          </p>
+          <p>
+            Atención presencial en el centro de Concepción y asesoría en línea, para que
+            resolver tu caso no dependa de dónde estés.
+          </p>
+        </div>
+
+        <!-- Tarjeta de llamada gratuita -->
+        <aside class="llamada" data-revelar style="--i:1">
+          <span class="llamada__etiqueta">Abogado online</span>
+          <p class="llamada__titulo">Llamada en línea <span>gratis</span></p>
+          <p class="llamada__horario">
+            <svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg>
+            De 10:00 a 12:00 horas
+          </p>
+          <a href="tel:+56956299095" class="llamada__numero">+56 9 5629 9095</a>
+          <a href="tel:+56956299095" class="boton boton--oro boton--ancho">
+            <svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> Llamar ahora
+          </a>
+        </aside>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         VIDEOS EDUCATIVOS (carrusel)
+         Cada video es un bloque <article class="video">.
+         - Video propio: data-video="videos/archivo.mp4" + imagen de portada.
+         - Video de YouTube: data-youtube="CODIGO" (lo que va después de "v=" en el enlace).
+         - Video aún no grabado: clase "video--proximo".
+         ===================================================== -->
+    <section class="seccion seccion--azul videos" id="videos">
+      <div class="contenedor videos__rejilla">
+        <div class="videos__texto" data-revelar>
+          <p class="antetitulo antetitulo--claro">Contenido educativo</p>
+          <h2 class="titulo">Mira nuestros videos educativos</h2>
+          <p class="videos__bajada">Explicamos en simple los temas legales que más te preocupan.</p>
+          <a href="https://www.tiktok.com/@estudiojuridicobiobio" class="boton boton--oro" target="_blank" rel="noopener">Ver más videos</a>
+        </div>
+
+        <div class="carrusel" data-revelar style="--i:1">
+          <div class="carrusel__ventana">
+            <div class="carrusel__pista" id="carruselPista">
+
+              <article class="video" data-video="videos/presentacion.mp4">
+                <button class="video__portada" type="button" aria-label="Reproducir video: Conoce Tedefiende.cl">
+                  <img src="videos/presentacion-portada.jpg" alt="" width="1280" height="720" loading="lazy">
+                  <span class="video__play" aria-hidden="true"></span>
+                </button>
+                <p class="video__titulo">Conoce Tedefiende.cl · 1 min</p>
+              </article>
+
+              <article class="video video--proximo">
+                <div class="video__portada video__portada--proximo">
+                  <span class="video__etiqueta">Próximamente</span>
+                  <svg class="video__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+                  <p class="video__proximo-titulo">Pensión de alimentos:<br>lo que debes saber</p>
+                </div>
+                <p class="video__titulo">Pensión de alimentos</p>
+              </article>
+
+              <article class="video video--proximo">
+                <div class="video__portada video__portada--proximo">
+                  <span class="video__etiqueta">Próximamente</span>
+                  <svg class="video__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+                  <p class="video__proximo-titulo">Divorcio:<br>los primeros pasos</p>
+                </div>
+                <p class="video__titulo">Divorcio</p>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="carrusel__controles">
+            <button class="carrusel__flecha" id="carruselAnterior" type="button" aria-label="Video anterior">
+              <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+            </button>
+            <div class="carrusel__puntos" id="carruselPuntos"></div>
+            <button class="carrusel__flecha carrusel__flecha--siguiente" id="carruselSiguiente" type="button" aria-label="Video siguiente">
+              <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         3. ÁREAS DE PRÁCTICA
+         Tarjetas: cada <article class="area"> es una materia.
+         Botones: cada <a class="materia"> es un tema frecuente.
+         Copie o borre bloques para agregar o quitar.
+         ===================================================== -->
+    <section class="seccion seccion--piedra" id="areas">
+      <div class="contenedor">
+        <header class="encabezado-seccion" data-revelar>
+          <p class="antetitulo">Áreas de atención</p>
+          <h2 class="titulo">Áreas de práctica</h2>
+          <p class="encabezado-seccion__texto">
+            Un problema legal mal resuelto puede afectar a tu familia, tu patrimonio y tu
+            tranquilidad por años. Por eso cada caso se estudia en detalle y con una
+            estrategia clara desde el primer día.
+          </p>
+        </header>
+
+        <div class="areas">
+          <article class="area" data-revelar style="--i:0">
+            <svg class="area__icono" aria-hidden="true"><use href="#i-civil"/></svg>
+            <h3 class="area__titulo">Derecho civil y contratos</h3>
+            <p class="area__texto">Redacción y revisión de contratos, incumplimientos, arriendos y conflictos entre particulares.</p>
+            <a href="areas/derecho-civil-y-contratos.html" class="area__enlace">Leer más <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="area" data-revelar style="--i:1">
+            <svg class="area__icono" aria-hidden="true"><use href="#i-familia"/></svg>
+            <h3 class="area__titulo">Derecho de familia</h3>
+            <ul class="area__lista">
+              <li>Pensiones de alimentos</li>
+              <li>Régimen de visitas</li>
+              <li>Divorcios</li>
+            </ul>
+            <a href="areas/derecho-de-familia.html" class="area__enlace">Leer más <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="area" data-revelar style="--i:2">
+            <svg class="area__icono" aria-hidden="true"><use href="#i-documento"/></svg>
+            <h3 class="area__titulo">Herencias y testamentos</h3>
+            <p class="area__texto">Testamentos, posesiones efectivas y partición de bienes para proteger lo que es tuyo.</p>
+            <a href="areas/herencias-y-testamentos.html" class="area__enlace">Leer más <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="area" data-revelar style="--i:3">
+            <svg class="area__icono" aria-hidden="true"><use href="#i-escudo"/></svg>
+            <h3 class="area__titulo">Defensa legal integral</h3>
+            <p class="area__texto">Representación y asesoría en otras materias, con el mismo compromiso en cada caso.</p>
+            <a href="areas/defensa-legal-integral.html" class="area__enlace">Leer más <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+
+        <p class="materias__titulo" data-revelar>Consultas frecuentes</p>
+        <div class="materias" data-revelar>
+          <a href="areas/derecho-de-familia.html#pension-de-alimentos" class="materia">Pensión de alimentos</a>
+          <a href="areas/derecho-de-familia.html#regimen-de-visitas" class="materia">Régimen de visitas</a>
+          <a href="areas/derecho-de-familia.html#divorcio" class="materia">Divorcios</a>
+          <a href="areas/derecho-civil-y-contratos.html#contratos" class="materia">Contratos</a>
+          <a href="areas/herencias-y-testamentos.html#posesion-efectiva" class="materia">Herencias</a>
+          <a href="areas/herencias-y-testamentos.html#testamento" class="materia">Testamentos</a>
+          <a href="areas/derecho-civil-y-contratos.html#deudas" class="materia">Cobranzas</a>
+          <a href="areas/defensa-legal-integral.html" class="materia">Otras materias</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DERECHO DE FAMILIA (sección destacada)
+         Titular grande + botón que se monta sobre la foto.
+         ===================================================== -->
+    <section class="familia" id="familia">
+      <div class="contenedor">
+        <div class="familia__texto" data-revelar>
+          <p class="antetitulo">Derecho de familia</p>
+          <h2 class="familia__titulo">Te acompañamos en los momentos que más importan para tu familia</h2>
+          <p class="familia__bajada">
+            Pensiones de alimentos, régimen de visitas y divorcios. Sabemos que detrás de
+            cada caso hay hijos, emociones y un futuro en juego. Por eso te escuchamos,
+            te explicamos cada paso con claridad y buscamos la solución que proteja lo
+            que más quieres.
+          </p>
+        </div>
+
+        <!-- Botón con marco blanco que se monta sobre la foto -->
+        <div class="familia__accion" data-revelar>
+          <a href="#contacto" class="boton boton--azul familia__boton">
+            Conversemos sobre tu caso
+            <span class="familia__flecha" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Foto a todo el ancho. Para cambiarla, reemplace img/familia.jpg
+           (ideal: foto horizontal de 2000 px de ancho o más) -->
+      <div class="familia__foto">
+        <img src="img/familia.jpg" alt="Un padre camina de la mano con su hijo por un camino de campo" width="2594" height="743" loading="lazy">
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PILARES (tres columnas con emblema)
+         ===================================================== -->
+    <section class="seccion seccion--azul">
+      <div class="contenedor pilares">
+        <div class="pilar" data-revelar style="--i:0">
+          <svg class="pilar__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+          <h3 class="pilar__titulo">Asesoría experta</h3>
+          <p>Te explicamos tu caso en palabras simples y te decimos con honestidad cuáles son tus opciones.</p>
+        </div>
+        <div class="pilar" data-revelar style="--i:1">
+          <svg class="pilar__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+          <h3 class="pilar__titulo">Resultados reales</h3>
+          <p>Trabajamos con una estrategia clara y un objetivo definido: la mejor solución posible para ti.</p>
+        </div>
+        <div class="pilar" data-revelar style="--i:2">
+          <svg class="pilar__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+          <h3 class="pilar__titulo">Cercanía total</h3>
+          <p>Atención presencial en Concepción y en línea. Siempre sabrás en qué etapa está tu caso.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         4. SOBRE MÍ
+         ===================================================== -->
+    <!-- Estilo "retrato editorial": foto de fondo con Julián a la izquierda,
+         nombre enorme a la derecha sobre las columnas desenfocadas y sello al pie. -->
+    <section class="sobre" id="sobre-mi">
+      <!-- Foto de fondo. Para cambiarla, reemplace img/julian-sobre-mi-fondo.jpg
+           (ideal: foto horizontal con la persona a la izquierda y espacio libre a la derecha) -->
+      <div class="sobre__fondo">
+        <img src="img/julian-sobre-mi-fondo.jpg" alt="Retrato del abogado Julián Herrera Martínez" width="2534" height="1075" loading="lazy">
+      </div>
+
+      <div class="contenedor sobre__rejilla">
+        <div class="sobre__texto">
+          <div data-revelar>
+            <p class="antetitulo">Sobre mí</p>
+            <h2 class="sobre__nombre">Julián Herrera<br>Martínez</h2>
+          </div>
+
+          <!-- CAMBIAR: biografía real, escrita en primera persona como una cita -->
+          <blockquote class="sobre__cita" data-revelar>
+            “Texto de ejemplo: aquí irá, en primera persona, por qué Julián decidió ser
+            abogado, su formación y años de experiencia, y cómo acompaña a cada cliente.
+            Tus derechos no se improvisan: mi experiencia los respalda.”
+          </blockquote>
+
+          <div class="sobre__acciones" data-revelar>
+            <a href="#contacto" class="boton boton--azul">Conversemos tu caso</a>
+            <a href="https://www.facebook.com/profile.php?id=61574104022977" class="sobre__facebook" target="_blank" rel="noopener">
+              <svg class="icono" aria-hidden="true"><use href="#i-facebook"/></svg> Síguenos en Facebook
+            </a>
+          </div>
+
+          <!-- Sello al pie (en la referencia, aquí iba un diploma o certificación) -->
+          <div class="sobre__sello" data-revelar>
+            <svg class="sobre__sello-emblema" aria-hidden="true"><use href="#emblema"/></svg>
+            <p class="sobre__sello-texto">
+              <span>Abogado</span>
+              <strong>Concepción · Chile</strong>
+              <span>Atención presencial y online</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         FRASE DESTACADA (banda ancha)
+         Para usar una foto de fondo, vea .banda en estilos.css
+         ===================================================== -->
+    <section class="banda">
+      <svg class="banda__emblema" aria-hidden="true"><use href="#emblema"/></svg>
+      <div class="contenedor banda__contenido" data-revelar>
+        <h2 class="banda__titulo">Tus derechos <span>no se improvisan</span></h2>
+        <p class="banda__texto">
+          Cada caso es distinto, pero todos merecen la misma atención, preparación y
+          compromiso. Nuestra experiencia los respalda.
+        </p>
+        <a href="#contacto" class="boton boton--oro">Agenda una consulta</a>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         5. CONTACTO
+         ===================================================== -->
+    <section class="seccion seccion--piedra" id="contacto">
+      <div class="contenedor">
+        <header class="encabezado-seccion" data-revelar>
+          <p class="antetitulo">Contacto</p>
+          <h2 class="titulo">Agenda tu consulta</h2>
+          <p class="encabezado-seccion__texto">
+            Cuéntanos brevemente tu caso y te contactaremos a la brevedad. Toda la
+            información es confidencial.
+          </p>
+        </header>
+
+        <div class="contacto">
+          <ul class="datos" data-revelar>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-ubicacion"/></svg>
+              <div><span class="dato__etiqueta">Oficina</span>Caupolicán 567, Concepción Centro</div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-chat"/></svg>
+              <div><span class="dato__etiqueta">WhatsApp y teléfono</span><a href="https://wa.me/56956299095" target="_blank" rel="noopener">+56 9 5629 9095</a></div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-correo"/></svg>
+              <div><span class="dato__etiqueta">Correo</span><a href="mailto:contacto@tedefiende.cl">contacto@tedefiende.cl</a></div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-reloj"/></svg>
+              <div><span class="dato__etiqueta">Llamadas en línea gratis</span>10:00 a 12:00 horas</div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-web"/></svg>
+              <div><span class="dato__etiqueta">Sitio web</span>www.tedefiende.cl</div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-facebook"/></svg>
+              <div><span class="dato__etiqueta">Facebook</span><a href="https://www.facebook.com/profile.php?id=61574104022977" target="_blank" rel="noopener">Tedefiende.cl</a></div>
+            </li>
+            <li class="dato">
+              <svg class="dato__icono" aria-hidden="true"><use href="#i-musica"/></svg>
+              <div><span class="dato__etiqueta">TikTok</span><a href="https://www.tiktok.com/@estudiojuridicobiobio" target="_blank" rel="noopener">@estudiojuridicobiobio</a></div>
+            </li>
+          </ul>
+
+          <!-- Formulario: por ahora solo valida en el navegador (ver js/main.js) -->
+          <form class="formulario" id="formulario" novalidate data-revelar style="--i:1">
+            <p class="formulario__titulo">Solicita tu consulta</p>
+
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+              <p class="campo__error" aria-live="polite"></p>
+            </div>
+
+            <div class="formulario__fila">
+              <div class="campo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" autocomplete="email" required>
+                <p class="campo__error" aria-live="polite"></p>
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
+                <p class="campo__error" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="mensaje">Cuéntanos tu caso</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+              <p class="campo__error" aria-live="polite"></p>
+            </div>
+
+            <button type="submit" class="boton boton--oro boton--ancho">
+              Enviar mensaje <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+            </button>
+            <p class="formulario__estado" id="formularioEstado" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       6. PIE DE PÁGINA
+       ===================================================== -->
+  <footer class="pie">
+    <div class="contenedor pie__columnas">
+      <div>
+        <a href="#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+          <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+        </a>
+        <p class="pie__descripcion">Defensa legal profesional y confiable. Abogado Julián Herrera Martínez.</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Navegación</p>
+        <ul class="pie__lista">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#areas">Áreas de práctica</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="pie__titulo">Contacto</p>
+        <ul class="pie__lista">
+          <li>Caupolicán 567, Concepción Centro</li>
+          <li><a href="tel:+56956299095">+56 9 5629 9095</a></li>
+          <li><a href="mailto:contacto@tedefiende.cl">contacto@tedefiende.cl</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61574104022977" target="_blank" rel="noopener">Facebook Tedefiende.cl</a></li>
+          <li><a href="https://www.tiktok.com/@estudiojuridicobiobio" target="_blank" rel="noopener">TikTok @estudiojuridicobiobio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__legal">
+      <!-- El año se completa solo con js/main.js -->
+      <p>&copy; <span id="anio"></span> Tedefiende.cl · Julián Herrera Martínez. Todos los derechos reservados.</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       ASISTENTE VIRTUAL (ventana de chat flotante)
+       Las preguntas y respuestas se editan en js/asistente.js
+       ===================================================== -->
+  <div class="asistente" id="asistente">
+    <!-- Globo de saludo que aparece a los pocos segundos -->
+    <button class="asistente__burbuja" id="asistenteBurbuja" type="button">
+      Hola 👋 ¿Te ayudo con tu caso?
+    </button>
+
+    <!-- Ventana del chat -->
+    <section class="asistente__panel" id="asistentePanel" role="dialog" aria-label="Asistente virtual de Tedefiende.cl" aria-hidden="true">
+      <header class="asistente__cabecera">
+        <span class="asistente__avatar" aria-hidden="true"><svg><use href="#emblema"/></svg></span>
+        <div class="asistente__identidad">
+          <p class="asistente__nombre">Asistente Tedefiende</p>
+          <p class="asistente__estado">Responde al instante</p>
+        </div>
+        <button class="asistente__accion" id="asistenteReiniciar" type="button" aria-label="Empezar de nuevo" title="Empezar de nuevo">↻</button>
+        <button class="asistente__accion" id="asistenteCerrar" type="button" aria-label="Cerrar asistente" title="Cerrar">✕</button>
+      </header>
+
+      <div class="asistente__mensajes" id="asistenteMensajes" aria-live="polite"></div>
+      <div class="asistente__opciones" id="asistenteOpciones"></div>
+
+      <form class="asistente__entrada" id="asistenteFormulario" autocomplete="off">
+        <label class="solo-lectores" for="asistenteTexto">Escribe tu mensaje</label>
+        <input type="text" id="asistenteTexto" placeholder="Escribe tu mensaje…" maxlength="300">
+        <button type="submit" aria-label="Enviar mensaje">
+          <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </button>
+      </form>
+
+      <p class="asistente__aviso">
+        Asistente automático: entrega información general y no reemplaza la asesoría de un abogado.
+        No guardamos tus datos.
+      </p>
+    </section>
+
+    <!-- Botón flotante que abre y cierra el chat -->
+    <button class="asistente__lanzador" id="asistenteLanzador" type="button" aria-label="Abrir asistente virtual" aria-expanded="false" aria-controls="asistentePanel">
+      <svg class="asistente__lanzador-emblema" aria-hidden="true"><use href="#emblema"/></svg>
+      <span class="asistente__lanzador-cerrar" aria-hidden="true">✕</span>
+    </button>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/asistente.js"></script>
+</body>
+</html>

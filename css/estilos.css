@@ -1,0 +1,2292 @@
+/* =========================================================
+   ESTILOS — TEDEFIENDE.CL · Julián Herrera Martínez
+   ---------------------------------------------------------
+   Índice:
+   1.  Variables (colores, tipografías, espaciados)  ← EDITAR AQUÍ
+   2.  Base y reinicio
+   3.  Piezas reutilizables (contenedor, títulos, botones, logo)
+   4.  Animaciones de aparición
+   5.  Encabezado y menú
+   6.  Portada (hero)
+   7.  Presentación y tarjeta de llamada
+   8.  Áreas de práctica
+   9.  Pilares
+   10. Sobre mí
+   11. Frase destacada (banda)
+   12. Contacto y formulario
+   13. Pie de página y botón de WhatsApp
+   14. Tablet y escritorio
+   15. Movimiento reducido
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES — cambie aquí colores, fuentes y espacios
+   ========================================================= */
+:root {
+  /* --- Colores de la marca (tomados del logo de Tedefiende.cl) --- */
+  --azul: #13378f;            /* azul del logo "DEFIENDE" */
+  --azul-oscuro: #0d1d45;     /* fondos azules */
+  --azul-noche: #081230;      /* encabezado y pie */
+  --oro: #d6a84c;             /* dorado del logo "TE" */
+  --oro-claro: #ebc97f;       /* dorado sobre fondos oscuros */
+  --oro-oscuro: #9e7424;      /* dorado para texto pequeño sobre claro */
+  --piedra: #f4f0e8;          /* fondo claro cálido */
+  --piedra-oscura: #e9e1d2;   /* bordes y detalles */
+  --blanco: #ffffff;
+  --tinta: #1a2033;           /* texto principal */
+  --tinta-suave: #575e70;     /* texto secundario */
+  --claro-suave: rgba(255, 255, 255, 0.78);  /* texto sobre azul */
+  --linea-clara: rgba(255, 255, 255, 0.14);
+  --whatsapp: #25d366;
+  --error: #c0392b;
+  --exito: #1e8449;
+
+  /* --- Tipografías --- */
+  --fuente-titulos: "Oswald", "Arial Narrow", Arial, sans-serif;
+  --fuente-texto: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fuente-firma: "Satisfy", cursive;
+  --fuente-serifa: "PT Serif", Georgia, "Times New Roman", serif;  /* sección de familia */
+
+  /* --- Tamaños de letra (clamp = se adapta a la pantalla) --- */
+  --t-mini: 0.78rem;
+  --t-pequeno: 0.875rem;
+  --t-base: 1rem;
+  --t-grande: 1.15rem;
+  --t-portada: clamp(3rem, 7.5vw, 6.2rem);
+  --t-seccion: clamp(2.4rem, 5.5vw, 4.4rem);
+  --t-banda: clamp(2.3rem, 6vw, 5rem);
+
+  /* --- Espaciados --- */
+  --e-1: 0.5rem;
+  --e-2: 1rem;
+  --e-3: 1.5rem;
+  --e-4: 2.5rem;
+  --e-5: 4rem;
+  --e-6: 6rem;
+  --e-seccion: clamp(4.5rem, 10vw, 7.5rem);
+  --margen-lateral: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* --- Otros --- */
+  --ancho-maximo: 1240px;
+  --alto-encabezado: 80px;
+  --alto-encabezado-scroll: 66px;
+  --radio: 3px;
+  --sombra: 0 18px 40px rgba(8, 18, 48, 0.12);
+  --curva: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   2. BASE Y REINICIO
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;                            /* desplazamiento suave */
+  scroll-padding-top: var(--alto-encabezado-scroll);  /* el encabezado no tapa los títulos */
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: var(--t-base);
+  line-height: 1.7;
+  color: var(--tinta);
+  background-color: var(--piedra);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+body.menu-abierto { overflow: hidden; }
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+::selection { background: var(--oro); color: var(--azul-noche); }
+
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 3px;
+}
+
+/* Íconos de línea */
+.icono {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   3. PIEZAS REUTILIZABLES
+   ========================================================= */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 var(--margen-lateral);
+}
+
+.seccion { padding: var(--e-seccion) 0; }
+
+.seccion--piedra { background-color: var(--piedra); }
+.seccion--blanca { background-color: var(--blanco); }
+
+/* Fondo azul con textura de tela fina (como un traje) */
+.seccion--azul {
+  color: var(--claro-suave);
+  background-color: var(--azul-oscuro);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 56px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 56px),
+    linear-gradient(180deg, var(--azul-oscuro), var(--azul-noche));
+}
+
+/* Colores de texto rápidos */
+.t-azul { color: var(--azul-oscuro); }
+.t-oro { color: var(--oro); }
+
+/* Texto pequeño sobre los títulos */
+.antetitulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--e-2);
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-pequeno);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oro-oscuro);
+}
+
+.antetitulo::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background-color: var(--oro);
+}
+
+.titulo {
+  font-size: var(--t-seccion);
+  color: var(--azul-oscuro);
+  letter-spacing: 0.005em;
+}
+
+.encabezado-seccion {
+  max-width: 760px;
+  margin-bottom: var(--e-5);
+}
+
+.encabezado-seccion__texto {
+  margin-top: var(--e-3);
+  font-size: var(--t-grande);
+  color: var(--tinta-suave);
+}
+
+/* Emblema (balanza) */
+.emblema-grande {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin-bottom: var(--e-4);
+  color: var(--oro);
+}
+
+/* --- Botones --- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.9rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s var(--curva);
+}
+
+.boton:hover { transform: translateY(-2px); }
+
+.boton--oro {
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.boton--oro:hover {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.boton--azul {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.boton--azul:hover {
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.boton--contorno {
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+.boton--contorno:hover {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+/* Contorno blanco, para fondos oscuros */
+.boton--contorno-claro {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--blanco);
+}
+
+.boton--contorno-claro:hover {
+  background-color: var(--blanco);
+  color: var(--azul-noche);
+}
+
+.boton--ancho { width: 100%; }
+
+/* --- Logo de la marca: TE (dorado) + DEFIENDE (azul) + .cl --- */
+.logo {
+  display: inline-flex;
+  align-items: flex-end;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.logo__te,
+.logo__defiende {
+  padding: 0.28rem 0.45rem 0.22rem;
+  color: var(--blanco);
+}
+
+.logo__te { background-color: var(--oro); }
+.logo__defiende { background-color: var(--azul); }
+
+.logo__cl {
+  margin-left: 0.1rem;
+  font-family: var(--fuente-firma);
+  font-weight: 400;
+  font-size: 1.55rem;
+  color: var(--oro);
+  transform: translateY(0.12rem);
+}
+
+
+/* =========================================================
+   4. ANIMACIONES DE APARICIÓN
+   (solo si JavaScript está activo: clase .js en <html>)
+   ========================================================= */
+.js [data-revelar] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s var(--curva), transform 0.9s var(--curva);
+  transition-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.js [data-revelar].visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Entrada de la portada al cargar */
+.js .portada__texto > * {
+  animation: entrar 1s var(--curva) both;
+}
+
+.js .portada__texto > *:nth-child(2) { animation-delay: 0.08s; }
+.js .portada__texto > *:nth-child(3) { animation-delay: 0.16s; }
+.js .portada__texto > *:nth-child(4) { animation-delay: 0.26s; }
+.js .portada__texto > *:nth-child(5) { animation-delay: 0.34s; }
+.js .portada__texto > *:nth-child(6) { animation-delay: 0.42s; }
+/* La foto de fondo se acerca lentamente (efecto cine) */
+.js .portada__fondo img { animation: acercar 9s ease-out both; }
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes acercar {
+  from { transform: scale(1.12); }
+  to   { transform: scale(1); }
+}
+
+
+/* =========================================================
+   5. ENCABEZADO Y MENÚ
+   ========================================================= */
+.encabezado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--alto-encabezado);
+  background-color: var(--azul-noche);
+  border-bottom: 3px solid var(--oro);
+  transition: height 0.35s var(--curva), box-shadow 0.35s;
+}
+
+/* Clase que agrega main.js al hacer scroll */
+.encabezado.con-scroll {
+  height: var(--alto-encabezado-scroll);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.encabezado__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-3);
+  height: 100%;
+}
+
+.encabezado__telefono { display: none; }
+
+/* Botón hamburguesa */
+.menu-boton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-boton span {
+  display: block;
+  height: 2px;
+  background-color: var(--blanco);
+  transition: transform 0.35s var(--curva), opacity 0.35s;
+}
+
+.menu-boton[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-boton[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-boton[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Menú en teléfono: panel que baja bajo el encabezado */
+.menu {
+  position: fixed;
+  top: var(--alto-encabezado-scroll);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--e-4) var(--margen-lateral);
+  background-color: var(--azul-noche);
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.55s var(--curva), visibility 0s 0.55s;
+}
+
+.encabezado:not(.con-scroll) .menu { top: var(--alto-encabezado); }
+
+.menu.abierto {
+  clip-path: inset(0 0 0 0);
+  visibility: visible;
+  transition: clip-path 0.55s var(--curva), visibility 0s;
+}
+
+.menu__lista { display: flex; flex-direction: column; }
+
+.menu__enlace {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--linea-clara);
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--blanco);
+  transition: color 0.3s;
+}
+
+.menu__enlace:hover,
+.menu__enlace.activo { color: var(--oro); }
+
+.menu__cta {
+  width: 100%;
+  margin-top: var(--e-4);
+}
+
+
+/* =========================================================
+   6. PORTADA (HERO)
+   ========================================================= */
+/* En teléfono: foto arriba y texto abajo sobre azul.
+   En escritorio (ver sección 14): foto de fondo a pantalla completa. */
+.portada {
+  position: relative;
+  padding-top: var(--alto-encabezado);
+  overflow: hidden;
+  background-color: var(--azul-noche);
+  color: var(--claro-suave);
+}
+
+.portada__fondo {
+  position: relative;
+  height: 62vw;
+  min-height: 300px;
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.portada__fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;   /* mantiene a Julián al centro */
+}
+
+/* Degradado que funde la foto con el azul de abajo */
+.portada__fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 18, 48, 0.15) 0%, transparent 40%, var(--azul-noche) 100%);
+}
+
+.portada__contenido { position: relative; }
+
+.portada__texto {
+  margin-top: -3rem;   /* el texto sube un poco sobre la foto */
+  padding-bottom: var(--e-5);
+}
+
+.portada__emblema {
+  display: block;
+  width: 64px;
+  height: 64px;
+  color: var(--oro);
+  margin-bottom: var(--e-2);
+}
+
+.portada__nombre {
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-pequeno);
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--oro-claro);
+}
+
+.portada__titulo {
+  margin: var(--e-2) 0 var(--e-3);
+  font-size: var(--t-portada);
+  line-height: 0.98;
+  color: var(--blanco);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+
+.portada__titulo span { display: block; }
+.portada__titulo .t-chico { font-size: 0.62em; margin-top: 0.12em; }
+
+.portada__frase {
+  max-width: 30rem;
+  padding-left: var(--e-2);
+  border-left: 3px solid var(--oro);
+  font-size: var(--t-grande);
+  font-style: italic;
+  color: var(--claro-suave);
+}
+
+.portada__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-top: var(--e-4);
+}
+
+/* Frase normal con ícono al inicio (no flex, para que el texto no se parta en columnas) */
+.portada__nota {
+  display: block;
+  margin-top: var(--e-3);
+  font-size: var(--t-pequeno);
+  color: var(--claro-suave);
+}
+
+.portada__nota .icono { color: var(--oro); vertical-align: -0.2em; margin-right: 0.35rem; }
+.portada__nota strong { color: var(--oro-claro); }
+
+
+/* =========================================================
+   7. PRESENTACIÓN Y TARJETA DE LLAMADA
+   ========================================================= */
+.presentacion__rejilla {
+  display: grid;
+  gap: var(--e-5);
+  align-items: center;
+}
+
+.presentacion__texto p {
+  font-size: var(--t-grande);
+  max-width: 36rem;
+}
+
+.presentacion__texto p { color: var(--tinta-suave); }
+.presentacion__texto p + p { margin-top: var(--e-2); }
+.presentacion__texto strong { color: var(--azul-oscuro); font-weight: 600; }
+
+.llamada {
+  position: relative;
+  padding: var(--e-4) clamp(1.5rem, 4vw, 2.5rem);
+  background-color: var(--piedra);
+  border-top: 6px solid var(--oro);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  color: var(--tinta);
+}
+
+.llamada__etiqueta {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-mini);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.llamada__titulo {
+  margin-top: var(--e-2);
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+/* La palabra "gratis" en recuadro, como en el afiche */
+.llamada__titulo span {
+  display: inline-block;
+  padding: 0 0.35em;
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.llamada__horario {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--e-2);
+  color: var(--tinta-suave);
+}
+
+.llamada__numero {
+  display: block;
+  margin: var(--e-2) 0 var(--e-3);
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  font-weight: 600;
+  color: var(--azul);
+}
+
+
+/* =========================================================
+   7b. VIDEOS EDUCATIVOS (carrusel)
+   ========================================================= */
+.videos__rejilla {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);   /* evita que el carrusel ensanche la columna en teléfonos chicos */
+  gap: var(--e-4);
+  align-items: center;
+}
+
+.videos__rejilla > * { min-width: 0; }
+
+.videos .titulo { color: var(--blanco); }
+
+.videos__bajada {
+  max-width: 26rem;
+  margin: var(--e-2) 0 var(--e-4);
+  font-size: var(--t-grande);
+}
+
+.carrusel__ventana {
+  overflow: hidden;
+  border-radius: var(--radio);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.carrusel__pista {
+  display: flex;
+  transition: transform 0.6s var(--curva);
+}
+
+.video {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Portada del video (botón con imagen y ícono de reproducir) */
+.video__portada {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: none;
+  background-color: var(--azul-noche);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video__portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--curva);
+}
+
+.video__portada:hover img { transform: scale(1.04); }
+
+/* Posición ajustable por video con style="--play-x: ..; --play-y: .." */
+.video__play {
+  position: absolute;
+  top: var(--play-y, 50%);
+  left: var(--play-x, 50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background-color: var(--oro);
+  box-shadow: 0 0 0 10px rgba(214, 168, 76, 0.3);
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s var(--curva), box-shadow 0.35s;
+}
+
+/* Triángulo de "play" dibujado con bordes */
+.video__play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  border-style: solid;
+  border-width: 14px 0 14px 23px;
+  border-color: transparent transparent transparent var(--azul-noche);
+  transform: translate(-50%, -50%);
+}
+
+.video__portada:hover .video__play {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 0 16px rgba(214, 168, 76, 0.25);
+}
+
+/* En teléfono, botón de reproducir más chico */
+@media (max-width: 699px) {
+  .video__play { width: 60px; height: 60px; box-shadow: 0 0 0 7px rgba(214, 168, 76, 0.3); }
+  .video__play::after { border-width: 10px 0 10px 17px; }
+}
+
+/* El video ya reproduciéndose */
+.video__reproductor {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background-color: #000;
+}
+
+/* Tarjeta de video "próximamente" */
+.video__portada--proximo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  cursor: default;
+  background: linear-gradient(135deg, #e9dcc8, #c9ad8d);
+  color: var(--azul-noche);
+}
+
+.video__etiqueta {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--azul-noche);
+  color: var(--oro-claro);
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-mini);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.video__emblema {
+  width: clamp(54px, 9vw, 84px);
+  height: clamp(54px, 9vw, 84px);
+  color: var(--azul-noche);
+}
+
+.video__proximo-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.video__titulo {
+  padding: 0.9rem 1.1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: var(--t-pequeno);
+  color: var(--claro-suave);
+}
+
+/* Flechas y puntos */
+.carrusel__controles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--e-3);
+}
+
+.carrusel__flecha {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--oro);
+  border-radius: 50%;
+  background: none;
+  color: var(--oro);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.carrusel__flecha .icono { width: 22px; height: 22px; transform: rotate(180deg); }
+.carrusel__flecha--siguiente .icono { transform: none; }
+
+.carrusel__flecha:hover {
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.carrusel__puntos { display: flex; gap: 0.6rem; }
+
+.carrusel__punto {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid var(--oro);
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carrusel__punto.activo {
+  background-color: var(--oro);
+  transform: scale(1.15);
+}
+
+@media (min-width: 1024px) {
+  .videos__rejilla {
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: var(--e-5);
+  }
+
+  /* Texto alineado a la derecha, junto al video (como en la referencia) */
+  .videos__texto { text-align: right; }
+  .videos__texto .antetitulo { flex-direction: row-reverse; }
+  .videos__bajada { margin-left: auto; }
+}
+
+
+/* =========================================================
+   8. ÁREAS DE PRÁCTICA
+   ========================================================= */
+.areas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-3);
+}
+
+.area {
+  position: relative;
+  padding: var(--e-4) var(--e-3);
+  background-color: var(--blanco);
+  border-bottom: 4px solid var(--oro);
+  border-radius: var(--radio);
+  box-shadow: 0 2px 0 var(--piedra-oscura);
+  transition: transform 0.4s var(--curva), box-shadow 0.4s, background-color 0.4s;
+}
+
+.area:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra);
+}
+
+.area__icono {
+  width: 52px;
+  height: 52px;
+  padding: 12px;
+  margin-bottom: var(--e-3);
+  border-radius: 50%;
+  background-color: var(--azul-oscuro);
+  color: var(--oro);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.area__titulo {
+  font-size: 1.45rem;
+  color: var(--azul-oscuro);
+  margin-bottom: var(--e-1);
+}
+
+.area__texto { color: var(--tinta-suave); }
+
+.area__lista li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--tinta-suave);
+}
+
+.area__lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background-color: var(--oro);
+}
+
+/* Botones de consultas frecuentes */
+.materias__titulo {
+  margin: var(--e-5) 0 var(--e-2);
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--azul-oscuro);
+}
+
+.materias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.materia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.4rem;
+  padding: 0.6rem 1rem;
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-size: var(--t-pequeno);
+  font-weight: 500;
+  text-align: center;
+  border-radius: var(--radio);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.materia:hover {
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+
+/* =========================================================
+   8b. DERECHO DE FAMILIA (sección destacada)
+   ========================================================= */
+.familia {
+  padding-top: var(--e-seccion);
+  background-color: var(--blanco);
+}
+
+.familia__texto {
+  max-width: 860px;
+}
+
+.familia__titulo {
+  font-family: var(--fuente-serifa);
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  text-transform: none;   /* este título va en minúsculas, a diferencia del resto */
+  color: var(--azul-noche);
+}
+
+.familia__bajada {
+  max-width: 640px;
+  margin-top: var(--e-3);
+  font-size: var(--t-grande);
+  color: var(--tinta-suave);
+}
+
+/* Contenedor del botón: se monta sobre el borde superior de la foto */
+.familia__accion {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: var(--e-4);
+  margin-bottom: -2.4rem;
+  padding: 0.55rem;
+  background-color: var(--blanco);   /* marco blanco alrededor del botón */
+}
+
+.familia__boton {
+  gap: 1.5rem;
+  padding: 1.25rem 1.6rem;
+}
+
+/* Flecha larga dibujada con CSS */
+.familia__flecha {
+  position: relative;
+  width: 56px;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.35s var(--curva);
+}
+
+.familia__flecha::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.familia__boton:hover .familia__flecha { width: 72px; }
+
+.familia__foto {
+  height: clamp(320px, 40vw, 600px);
+  overflow: hidden;
+}
+
+.familia__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 24% 40%;   /* en teléfono: niño y padre a la vista */
+}
+
+/* En teléfono: botón y flecha más compactos */
+@media (max-width: 699px) {
+  .familia__accion { display: block; }
+  .familia__boton { width: 100%; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.3rem; font-size: 0.9rem; letter-spacing: 0.05em; }
+  .familia__flecha { width: 36px; }
+  .familia__boton:hover .familia__flecha { width: 44px; }
+}
+
+@media (min-width: 700px) {
+  .familia__foto img { object-position: 35% 40%; }
+}
+
+
+/* =========================================================
+   9. PILARES
+   ========================================================= */
+.pilares {
+  display: grid;
+  gap: var(--e-5);
+  text-align: center;
+}
+
+.pilar__emblema {
+  display: block;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto var(--e-3);
+  color: var(--oro);
+}
+
+.pilar__titulo {
+  margin-bottom: var(--e-2);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  color: var(--blanco);
+}
+
+.pilar p {
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   10. SOBRE MÍ — estilo "retrato editorial"
+   ========================================================= */
+.sobre {
+  position: relative;
+  overflow: hidden;
+  background-color: #ae9074;   /* mismo tono de las columnas de la foto */
+}
+
+/* Foto de fondo: en teléfono va arriba; en escritorio cubre toda la sección */
+.sobre__fondo {
+  position: relative;
+  height: 75vw;
+  max-height: 460px;
+  overflow: hidden;
+}
+
+.sobre__fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 22% 12%;   /* mantiene a Julián (y su cabeza) a la vista */
+}
+
+/* Pantallas medianas (tablet y notebook chico): foto más alta y texto más angosto */
+@media (min-width: 700px) {
+  .sobre__fondo { height: 52vw; max-height: 620px; }
+  .sobre__texto { max-width: 680px; }
+}
+
+/* Difuminado inferior para unir la foto con el texto (teléfono) */
+.sobre__fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, #ae9074 100%);
+}
+
+.sobre__rejilla {
+  position: relative;
+  display: grid;
+}
+
+.sobre__texto { padding: var(--e-4) 0 var(--e-5); }
+
+/* Sobre el fondo beige, el texto pequeño va en azul para que se lea bien */
+.sobre .antetitulo { color: var(--azul-noche); }
+
+.sobre__nombre {
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  color: var(--azul-noche);
+}
+
+.sobre__cita {
+  max-width: 38rem;
+  margin: var(--e-3) 0 var(--e-4);
+  font-size: var(--t-grande);
+  line-height: 1.75;
+  color: var(--azul-oscuro);
+}
+
+/* Texto justificado solo en pantallas anchas (en teléfono deja huecos) */
+@media (min-width: 1024px) {
+  .sobre__cita { text-align: justify; hyphens: auto; }
+}
+
+.sobre__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2) var(--e-4);
+}
+
+.sobre__facebook {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--azul);
+  border-bottom: 2px solid var(--oro);
+  padding-bottom: 0.15rem;
+  transition: color 0.3s;
+}
+
+.sobre__facebook:hover { color: var(--oro-oscuro); }
+
+/* Sello al pie (emblema + texto) */
+.sobre__sello {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  margin-top: var(--e-3);
+}
+
+.sobre__sello-emblema {
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  flex-shrink: 0;
+  border: 2px solid var(--oro);
+  border-radius: 50%;
+  color: var(--azul-oscuro);
+}
+
+.sobre__sello-texto {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.sobre__sello-texto span {
+  font-size: var(--t-mini);
+  letter-spacing: 0.2em;
+  color: var(--azul-oscuro);
+}
+
+.sobre__sello-texto strong {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--azul-noche);
+}
+
+
+/* =========================================================
+   11. FRASE DESTACADA (BANDA)
+   ========================================================= */
+.banda {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 13vw, 9rem) 0;
+  text-align: center;
+  color: var(--claro-suave);
+  /* Para usar una foto de fondo (ej: un tribunal), agregue al inicio:
+     linear-gradient(rgba(8,18,48,.82), rgba(8,18,48,.82)), url("../img/banda.jpg") center / cover, */
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 100%, rgba(19, 55, 143, 0.55), transparent 70%),
+    var(--azul-noche);
+}
+
+/* Balanza gigante de fondo */
+.banda__emblema {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(620px, 120vw);
+  height: min(620px, 120vw);
+  transform: translate(-50%, -50%);
+  color: rgba(214, 168, 76, 0.07);
+  pointer-events: none;
+}
+
+.banda__contenido { position: relative; }
+
+.banda__titulo {
+  font-size: var(--t-banda);
+  color: var(--blanco);
+}
+
+.banda__titulo span {
+  display: inline-block;
+  margin-top: 0.15em;
+  padding: 0 0.3em;
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.banda__texto {
+  max-width: 40rem;
+  margin: var(--e-3) auto var(--e-4);
+  font-size: var(--t-grande);
+}
+
+
+/* =========================================================
+   12. CONTACTO Y FORMULARIO
+   ========================================================= */
+.contacto {
+  display: grid;
+  gap: var(--e-4);
+  align-items: start;
+}
+
+.datos {
+  display: grid;
+  gap: var(--e-1);
+}
+
+.dato {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  padding: var(--e-2) 0;
+  border-bottom: 1px solid var(--piedra-oscura);
+}
+
+.dato__icono {
+  width: 46px;
+  height: 46px;
+  padding: 11px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--azul);
+  color: var(--blanco);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dato__etiqueta {
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-mini);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oro-oscuro);
+}
+
+.dato a { color: var(--azul); font-weight: 600; }
+.dato a:hover { text-decoration: underline; }
+
+.formulario {
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  background-color: var(--blanco);
+  border-top: 6px solid var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.formulario__titulo {
+  margin-bottom: var(--e-3);
+  font-family: var(--fuente-titulos);
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+.formulario__fila { display: grid; gap: 0 var(--e-3); }
+
+.campo { margin-bottom: var(--e-2); }
+
+.campo label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  color: var(--azul-oscuro);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--fuente-texto);
+  font-size: var(--t-base);   /* 16px: evita el zoom automático en iPhone */
+  color: var(--tinta);
+  background-color: var(--piedra);
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.campo textarea { resize: vertical; min-height: 130px; }
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--oro);
+  background-color: var(--blanco);
+}
+
+/* Estado de error (clase agregada por main.js) */
+.campo.con-error input,
+.campo.con-error textarea { border-color: var(--error); }
+
+.campo__error {
+  min-height: 1.2em;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+.formulario__estado {
+  margin-top: var(--e-2);
+  font-size: var(--t-pequeno);
+  text-align: center;
+}
+
+.formulario__estado.exito { color: var(--exito); font-weight: 600; }
+
+
+/* =========================================================
+   13. PIE DE PÁGINA Y BOTÓN DE WHATSAPP
+   ========================================================= */
+.pie {
+  padding-top: var(--e-5);
+  background-color: var(--azul-noche);
+  border-top: 4px solid var(--oro);
+  color: var(--claro-suave);
+  font-size: var(--t-pequeno);
+}
+
+.pie__columnas {
+  display: grid;
+  gap: var(--e-4);
+  padding-bottom: var(--e-4);
+}
+
+.pie__descripcion { max-width: 22rem; margin-top: var(--e-3); }
+
+.pie__titulo {
+  margin-bottom: var(--e-2);
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oro);
+}
+
+.pie__lista li + li { margin-top: 0.4rem; }
+.pie__lista a:hover { color: var(--blanco); }
+
+.pie__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--e-2);
+  padding-top: var(--e-3);
+  padding-bottom: var(--e-3);
+  border-top: 1px solid var(--linea-clara);
+  font-size: var(--t-mini);
+}
+
+.pie__legal a:hover { color: var(--oro); }
+
+/* =========================================================
+   13b. ASISTENTE VIRTUAL (chat flotante)
+   ========================================================= */
+
+/* Texto solo para lectores de pantalla (accesibilidad) */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.asistente {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 95;
+  font-size: var(--t-base);
+}
+
+/* Botón flotante */
+.asistente__lanzador {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--oro);
+  border-radius: 50%;
+  background-color: var(--azul-noche);
+  color: var(--oro);
+  box-shadow: 0 12px 30px rgba(8, 18, 48, 0.35);
+  cursor: pointer;
+  transition: transform 0.3s var(--curva);
+}
+
+.asistente__lanzador:hover { transform: scale(1.06); }
+
+/* Anillo que "late" para llamar la atención */
+.asistente__lanzador::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--oro);
+  animation: latir 2.6s ease-out infinite;
+}
+
+.asistente.abierto .asistente__lanzador::before { animation: none; opacity: 0; }
+
+@keyframes latir {
+  0%   { transform: scale(1); opacity: 0.7; }
+  70%  { transform: scale(1.45); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.asistente__lanzador-emblema {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s var(--curva), opacity 0.3s;
+}
+
+.asistente__lanzador-cerrar {
+  position: absolute;
+  font-size: 1.4rem;
+  color: var(--oro-claro);
+  opacity: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.3s var(--curva), opacity 0.3s;
+}
+
+.asistente.abierto .asistente__lanzador-emblema { opacity: 0; transform: rotate(90deg); }
+.asistente.abierto .asistente__lanzador-cerrar { opacity: 1; transform: none; }
+
+/* Globo de saludo */
+.asistente__burbuja {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  width: max-content;
+  max-width: 230px;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 14px 14px 4px 14px;
+  background-color: var(--blanco);
+  color: var(--azul-noche);
+  font-family: var(--fuente-texto);
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  text-align: left;
+  box-shadow: 0 12px 30px rgba(8, 18, 48, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s var(--curva), transform 0.4s var(--curva), visibility 0s 0.4s;
+}
+
+.asistente__burbuja.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.4s var(--curva), transform 0.4s var(--curva);
+}
+
+/* Ventana del chat */
+.asistente__panel {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: min(620px, calc(100vh - 130px));
+  height: min(620px, calc(100dvh - 130px));
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--blanco);
+  box-shadow: 0 30px 70px rgba(8, 18, 48, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.98);
+  transform-origin: bottom right;
+  transition: opacity 0.35s var(--curva), transform 0.35s var(--curva), visibility 0s 0.35s;
+}
+
+.asistente.abierto .asistente__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.35s var(--curva), transform 0.35s var(--curva);
+}
+
+/* Cabecera */
+.asistente__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background-color: var(--azul-noche);
+  border-bottom: 3px solid var(--oro);
+  color: var(--blanco);
+}
+
+.asistente__avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--oro);
+  border-radius: 50%;
+  color: var(--oro);
+}
+
+.asistente__avatar svg { width: 24px; height: 24px; }
+
+.asistente__identidad { flex: 1; line-height: 1.25; }
+
+.asistente__nombre {
+  font-family: var(--fuente-titulos);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.asistente__estado {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--claro-suave);
+}
+
+.asistente__estado::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--whatsapp);
+}
+
+.asistente__accion {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--blanco);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.asistente__accion:hover { background-color: rgba(255, 255, 255, 0.2); }
+
+/* Mensajes */
+.asistente__mensajes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--piedra);
+}
+
+.msg {
+  max-width: 85%;
+  padding: 0.7rem 0.95rem;
+  font-size: 0.93rem;
+  line-height: 1.5;
+  animation: aparecer-msg 0.3s var(--curva);
+}
+
+.msg--bot {
+  align-self: flex-start;
+  border-radius: 4px 14px 14px 14px;
+  background-color: var(--blanco);
+  color: var(--tinta);
+  box-shadow: 0 1px 2px rgba(8, 18, 48, 0.08);
+}
+
+.msg--usuario {
+  align-self: flex-end;
+  border-radius: 14px 4px 14px 14px;
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.msg--resumen {
+  border-left: 4px solid var(--oro);
+  font-size: 0.88rem;
+}
+
+.msg--resumen p + p { margin-top: 0.2rem; }
+.msg--resumen strong { color: var(--azul-oscuro); }
+
+@keyframes aparecer-msg {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Tres puntos "escribiendo…" */
+.msg--escribiendo {
+  display: flex;
+  gap: 4px;
+  padding: 0.85rem 1rem;
+}
+
+.msg--escribiendo span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--tinta-suave);
+  animation: puntos 1.2s infinite ease-in-out;
+}
+
+.msg--escribiendo span:nth-child(2) { animation-delay: 0.15s; }
+.msg--escribiendo span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes puntos {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Botones de opciones */
+.asistente__opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  max-height: 40%;
+  overflow-y: auto;
+  padding: 0 1rem;
+  background-color: var(--piedra);
+}
+
+.asistente__opciones:not(:empty) { padding-bottom: 0.85rem; }
+
+.opcion {
+  padding: 0.5rem 0.9rem;
+  border: 1.5px solid var(--azul);
+  border-radius: 999px;
+  background-color: var(--blanco);
+  color: var(--azul);
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+  cursor: pointer;
+  animation: aparecer-msg 0.3s var(--curva);
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.opcion:hover { background-color: var(--azul); color: var(--blanco); }
+
+.opcion--whatsapp { border-color: var(--whatsapp); background-color: var(--whatsapp); color: var(--blanco); }
+.opcion--whatsapp:hover { background-color: #1da851; color: var(--blanco); }
+
+.opcion--principal { border-color: var(--oro); background-color: var(--oro); color: var(--azul-noche); }
+.opcion--principal:hover { background-color: var(--azul-noche); border-color: var(--azul-noche); color: var(--blanco); }
+
+/* Campo para escribir */
+.asistente__entrada {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  border-top: 1px solid var(--piedra-oscura);
+  background-color: var(--blanco);
+}
+
+.asistente__entrada input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--piedra-oscura);
+  border-radius: 999px;
+  font-family: var(--fuente-texto);
+  font-size: var(--t-base);   /* 16px: evita el zoom en iPhone */
+  color: var(--tinta);
+}
+
+.asistente__entrada input:focus { outline: none; border-color: var(--oro); }
+
+.asistente__entrada button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--azul);
+  color: var(--blanco);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.asistente__entrada button:hover { background-color: var(--oro); color: var(--azul-noche); }
+
+.asistente__aviso {
+  padding: 0 1rem 0.6rem;
+  background-color: var(--blanco);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--tinta-suave);
+}
+
+/* Teléfono: el chat ocupa casi toda la pantalla, desde abajo */
+@media (max-width: 699px) {
+  .asistente { right: 1rem; bottom: 1rem; }
+
+  .asistente__panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 92vh;
+    height: 92dvh;
+    border-radius: 18px 18px 0 0;
+    transform: translateY(40px);
+  }
+
+  .asistente.abierto .asistente__lanzador { opacity: 0; pointer-events: none; }
+}
+
+
+/* =========================================================
+   14. TABLET Y ESCRITORIO
+   ========================================================= */
+
+/* Tablet: desde 700px */
+@media (min-width: 700px) {
+  .areas { grid-template-columns: repeat(2, 1fr); }
+  .materias { grid-template-columns: repeat(4, 1fr); }
+  .pilares { grid-template-columns: repeat(3, 1fr); gap: var(--e-4); }
+  .formulario__fila { grid-template-columns: 1fr 1fr; }
+  .pie__columnas { grid-template-columns: 2fr 1fr 1.3fr; }
+}
+
+/* Escritorio: desde 1024px */
+@media (min-width: 1024px) {
+  /* Portada: foto de fondo a pantalla completa (con tope para monitores muy altos) */
+  .portada {
+    display: flex;
+    align-items: center;
+    min-height: min(100vh, 880px);
+    min-height: min(100svh, 880px);
+  }
+
+  /* La foto ocupa desde el 28% del ancho hacia la derecha,
+     así Julián queda a la derecha y el texto a la izquierda */
+  .portada__fondo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 28%;
+    right: 0;
+    height: auto;
+    max-height: none;
+  }
+
+  .portada__fondo img { object-position: 45% 25%; }
+
+  /* Degradado azul desde la izquierda para que el texto se lea bien */
+  .portada__fondo::after {
+    background:
+      linear-gradient(90deg, var(--azul-noche) 0%, rgba(8, 18, 48, 0.85) 18%, rgba(8, 18, 48, 0.2) 50%, transparent 70%),
+      linear-gradient(0deg, rgba(8, 18, 48, 0.6) 0%, transparent 30%);
+  }
+
+  .portada__texto {
+    max-width: 640px;
+    margin-top: 0;
+    padding: var(--e-5) 0;
+  }
+
+  .presentacion__rejilla { grid-template-columns: 1.2fr 0.8fr; gap: var(--e-6); }
+
+  .areas { grid-template-columns: repeat(4, 1fr); }
+
+  /* Sección de familia: texto con sangría, como en la referencia */
+  .familia__texto,
+  .familia__accion { margin-left: 12%; }
+
+
+  .contacto { grid-template-columns: 0.85fr 1.15fr; gap: var(--e-5); }
+}
+
+/* Escritorio con espacio para el menú completo: desde 1100px */
+@media (min-width: 1100px) {
+  .menu-boton { display: none; }
+
+  .menu {
+    position: static;
+    padding: 0;
+    background: none;
+    clip-path: none;
+    visibility: visible;
+  }
+
+  .menu__lista { flex-direction: row; gap: 2rem; }
+
+  .menu__enlace {
+    position: relative;
+    padding: 0.4rem 0;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: var(--claro-suave);
+  }
+
+  .menu__enlace:hover,
+  .menu__enlace.activo { color: var(--blanco); }
+
+  /* Subrayado dorado */
+  .menu__enlace::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--oro);
+    transform: scaleX(0);
+    transition: transform 0.35s var(--curva);
+  }
+
+  .menu__enlace:hover::after,
+  .menu__enlace.activo::after { transform: scaleX(1); }
+
+  .menu__cta { display: none; }
+
+  .encabezado__telefono {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.15;
+  }
+
+  .encabezado__telefono-texto {
+    font-family: var(--fuente-titulos);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--claro-suave);
+  }
+
+  .encabezado__telefono-numero {
+    font-family: var(--fuente-titulos);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--oro);
+  }
+}
+
+
+/* Sobre mí lado a lado: solo en pantallas anchas (desde 1360px),
+   para que el texto nunca quede encima de Julián */
+@media (min-width: 1360px) {
+  .sobre {
+    display: flex;
+    align-items: center;
+    min-height: clamp(600px, 46vw, 820px);
+  }
+
+  .sobre__fondo {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    max-height: none;
+  }
+
+  .sobre__fondo img { object-position: left center; }
+
+  /* Aclara levemente la zona del texto para que se lea mejor */
+  .sobre__fondo::after {
+    background: linear-gradient(90deg, transparent 50%, rgba(240, 226, 206, 0.3) 100%);
+  }
+
+  .sobre__rejilla { grid-template-columns: 1.3fr 1fr; width: 100%; }
+
+  .sobre__texto {
+    grid-column: 2;
+    padding: var(--e-5) 0;
+  }
+}
+
+
+/* =========================================================
+   14b. PÁGINAS DE ÁREAS DE PRÁCTICA (artículos, carpeta areas/)
+   ========================================================= */
+
+/* Enlace "Leer más" en las tarjetas de la página principal */
+.area__enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--e-3);
+  font-family: var(--fuente-titulos);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul);
+  border-bottom: 2px solid var(--oro);
+  padding-bottom: 0.1rem;
+  transition: color 0.3s, gap 0.3s var(--curva);
+}
+
+.area__enlace:hover { color: var(--oro-oscuro); gap: 0.7rem; }
+
+/* Portada del artículo */
+.articulo-portada {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--alto-encabezado) + var(--e-5)) 0 var(--e-5);
+}
+
+/* Foto del tema: ocupa el lado derecho y se funde con el azul.
+   Si el archivo no existe, simplemente no se ve. */
+.articulo-portada__foto {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;                      /* en teléfono: foto suave detrás del texto */
+}
+
+.articulo-portada__foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 18, 48, 0.6), rgba(8, 18, 48, 0.85));
+}
+
+.articulo-portada__contenido { position: relative; }
+
+@media (min-width: 1024px) {
+  .articulo-portada__foto {
+    left: 40%;
+    opacity: 1;
+  }
+
+  .articulo-portada__foto::after {
+    background:
+      linear-gradient(90deg, var(--azul-noche) 0%, rgba(8, 18, 48, 0.75) 30%, rgba(8, 18, 48, 0.15) 70%, rgba(8, 18, 48, 0.25) 100%);
+  }
+
+  .articulo-portada__titulo,
+  .articulo-portada__bajada { text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35); }
+}
+
+.migas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--e-4);
+  font-size: var(--t-pequeno);
+  color: var(--claro-suave);
+}
+
+.migas a { color: var(--oro-claro); }
+.migas a:hover { text-decoration: underline; }
+
+.articulo-portada__titulo {
+  font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+  color: var(--blanco);
+}
+
+.articulo-portada__bajada {
+  max-width: 44rem;
+  margin-top: var(--e-3);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--claro-suave);
+}
+
+.articulo-portada__meta {
+  margin-top: var(--e-3);
+  font-size: var(--t-mini);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oro-claro);
+}
+
+/* Índice lateral + contenido */
+.articulo-rejilla {
+  display: grid;
+  gap: var(--e-4);
+  padding-top: var(--e-5);
+  padding-bottom: var(--e-5);
+}
+
+.articulo-indice__fijo {
+  padding: var(--e-3);
+  background-color: var(--blanco);
+  border-top: 4px solid var(--oro);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.articulo-indice__titulo {
+  margin-bottom: var(--e-2);
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+.articulo-indice ul { margin-bottom: var(--e-3); }
+
+.articulo-indice li + li { margin-top: 0.5rem; }
+
+.articulo-indice a:not(.boton) {
+  display: block;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--piedra-oscura);
+  font-size: var(--t-pequeno);
+  line-height: 1.45;
+  color: var(--tinta-suave);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.articulo-indice a:not(.boton):hover { color: var(--azul); border-color: var(--oro); }
+
+/* Texto del artículo */
+.articulo { max-width: 760px; }
+
+.articulo__seccion + .articulo__seccion { margin-top: var(--e-5); }
+
+.articulo h2 {
+  margin-bottom: var(--e-3);
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--azul-oscuro);
+}
+
+.articulo p,
+.articulo li {
+  font-size: 1.075rem;
+  line-height: 1.8;
+  color: var(--tinta);
+}
+
+.articulo p + p { margin-top: var(--e-2); }
+.articulo strong { color: var(--azul-oscuro); }
+
+.articulo ul,
+.articulo ol { margin: var(--e-2) 0; }
+
+.articulo ul li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.articulo ul li + li,
+.articulo ol li + li { margin-top: 0.55rem; }
+
+.articulo ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.75em;
+  width: 8px;
+  height: 8px;
+  background-color: var(--oro);
+}
+
+/* Lista numerada de pasos */
+.articulo ol.pasos { list-style: none; counter-reset: paso; }
+
+.articulo ol.pasos li {
+  position: relative;
+  padding: 0 0 0 3.6rem;
+  min-height: 2.6rem;
+  counter-increment: paso;
+}
+
+.articulo ol.pasos li + li { margin-top: var(--e-3); }
+
+.articulo ol.pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background-color: var(--azul-noche);
+  color: var(--oro);
+  font-family: var(--fuente-titulos);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Recuadro "Dato clave" */
+.dato-clave {
+  margin: var(--e-3) 0;
+  padding: var(--e-3);
+  background-color: var(--blanco);
+  border-left: 5px solid var(--oro);
+  border-radius: var(--radio);
+  box-shadow: 0 2px 0 var(--piedra-oscura);
+}
+
+.articulo .dato-clave p { font-size: 1.02rem; }
+
+.articulo .dato-clave__titulo {
+  margin-bottom: 0.35rem;
+  font-family: var(--fuente-titulos);
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oro-oscuro);
+}
+
+/* Fuentes y aviso */
+.articulo__fuentes {
+  margin-top: var(--e-5);
+  padding-top: var(--e-3);
+  border-top: 1px solid var(--piedra-oscura);
+}
+
+.articulo .articulo__fuentes-titulo {
+  margin-bottom: var(--e-1);
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+.articulo__fuentes li { font-size: var(--t-pequeno) !important; }
+.articulo__fuentes a { color: var(--azul); text-decoration: underline; text-underline-offset: 3px; }
+.articulo__fuentes a:hover { color: var(--oro-oscuro); }
+
+.articulo .articulo__aviso {
+  margin-top: var(--e-4);
+  padding: var(--e-2) var(--e-3);
+  background-color: var(--piedra-oscura);
+  border-radius: var(--radio);
+  font-size: var(--t-pequeno);
+  line-height: 1.6;
+  color: var(--tinta-suave);
+}
+
+/* Llamado a la acción al final */
+.articulo-cta { padding: var(--e-5) 0; text-align: center; }
+
+.articulo-cta__titulo {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: var(--blanco);
+}
+
+.articulo-cta__titulo span {
+  padding: 0 0.25em;
+  background-color: var(--oro);
+  color: var(--azul-noche);
+}
+
+.articulo-cta__contenido > p {
+  max-width: 34rem;
+  margin: var(--e-3) auto var(--e-4);
+  font-size: var(--t-grande);
+}
+
+.articulo-cta__botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--e-2);
+}
+
+/* Otras áreas */
+.relacionadas__titulo { margin-bottom: var(--e-4); font-size: clamp(2rem, 4.5vw, 3.2rem); }
+
+.relacionadas {
+  display: grid;
+  gap: var(--e-2);
+}
+
+.relacionada {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  padding: var(--e-3);
+  background-color: var(--blanco);
+  border-bottom: 4px solid var(--oro);
+  border-radius: var(--radio);
+  transition: transform 0.4s var(--curva), box-shadow 0.4s;
+}
+
+.relacionada:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+
+.relacionada__titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+
+.relacionada__mas {
+  font-size: var(--t-pequeno);
+  font-weight: 600;
+  color: var(--azul);
+}
+
+@media (min-width: 700px) {
+  .relacionadas { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .articulo-rejilla {
+    grid-template-columns: 270px 1fr;
+    gap: var(--e-6);
+    align-items: start;
+    padding-top: var(--e-6);
+  }
+
+  /* El índice acompaña al lector mientras baja */
+  .articulo-indice { position: sticky; top: calc(var(--alto-encabezado-scroll) + 1.5rem); }
+}
+
+
+/* =========================================================
+   15. MOVIMIENTO REDUCIDO
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

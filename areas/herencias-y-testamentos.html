@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herencias y testamentos · Tedefiende.cl · Julián Herrera Martínez, Abogado</title>
+  <meta name="description" content="Posesión efectiva, reparto de una herencia y testamentos en Chile, explicado en simple. Abogado Julián Herrera Martínez, Concepción.">
+  <meta name="theme-color" content="#0d1d45">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2313378f'/%3E%3Crect width='100' height='38' fill='%23d6a84c'/%3E%3Ctext x='50' y='84' font-size='44' font-weight='700' text-anchor='middle' fill='%23fff' font-family='Arial'%3ETD%3C/text%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=PT+Serif:wght@700&family=Oswald:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body id="arriba">
+  <!-- Página de área de práctica. Los textos se editan directamente aquí.
+       El encabezado, el pie y el asistente son los mismos de index.html. -->
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <!-- Emblema: balanza de la justicia (relleno) -->
+    <symbol id="emblema" viewBox="0 0 120 120">
+      <circle cx="60" cy="11" r="6" fill="currentColor"/>
+      <rect x="57" y="16" width="6" height="84" fill="currentColor"/>
+      <path d="M12 36 Q60 22 108 36" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 36 L8 72 M20 36 L32 72 M100 36 L88 72 M100 36 L112 72" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M4 72 H36 A16 13 0 0 1 4 72 Z M84 72 H116 A16 13 0 0 1 84 72 Z" fill="currentColor"/>
+      <path d="M36 110 H84 L78 100 H42 Z" fill="currentColor"/>
+    </symbol>
+    <!-- Íconos de línea -->
+    <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-civil" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9.5 21V10M14.5 21V10M19 21V10M2 10l10-6 10 6z"/></symbol>
+    <symbol id="i-familia" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-documento" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </svg>
+
+
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor encabezado__contenido">
+
+      <!-- Logo de la marca, hecho con texto (se ve nítido en cualquier pantalla) -->
+      <a href="../index.html#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+        <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <ul class="menu__lista">
+          <li><a href="../index.html#inicio" class="menu__enlace">Inicio</a></li>
+          <li><a href="../index.html#areas" class="menu__enlace activo">Áreas de práctica</a></li>
+          <li><a href="../index.html#videos" class="menu__enlace">Videos</a></li>
+          <li><a href="../index.html#sobre-mi" class="menu__enlace">Sobre mí</a></li>
+          <li><a href="../index.html#contacto" class="menu__enlace">Contacto</a></li>
+        </ul>
+        <!-- Solo se ve dentro del menú del teléfono -->
+        <a href="../index.html#contacto" class="boton boton--oro menu__cta">Agenda una consulta</a>
+      </nav>
+
+      <!-- Teléfono destacado (escritorio) -->
+      <a href="tel:+56956299095" class="encabezado__telefono">
+        <span class="encabezado__telefono-texto">Llamada en línea</span>
+        <span class="encabezado__telefono-numero">+56 9 5629 9095</span>
+      </a>
+
+      <!-- Botón del menú (teléfono y tablet) -->
+      <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Portada del artículo -->
+    <section class="articulo-portada seccion--azul">
+      <!-- Foto de portada: guárdela en img/areas/herencias.jpg (si no existe, la portada queda solo en azul) -->
+      <div class="articulo-portada__foto" style="background-image: url('../img/areas/herencias.jpg')" aria-hidden="true"></div>
+      <div class="contenedor articulo-portada__contenido">
+        <nav class="migas" aria-label="Estás en">
+          <a href="../index.html">Inicio</a> <span aria-hidden="true">/</span>
+          <a href="../index.html#areas">Áreas de práctica</a> <span aria-hidden="true">/</span>
+          <span aria-current="page">Herencias y testamentos</span>
+        </nav>
+        <p class="antetitulo antetitulo--claro">Área de práctica</p>
+        <h1 class="articulo-portada__titulo">Herencias y testamentos</h1>
+        <p class="articulo-portada__bajada">Qué hacer cuando fallece un familiar, cómo se reparte una herencia según la ley chilena y por qué un testamento puede evitar conflictos.</p>
+        <p class="articulo-portada__meta">Información revisada en noviembre de 2026 · Lectura de 6 min</p>
+      </div>
+    </section>
+
+    <!-- Índice lateral + artículo -->
+    <div class="contenedor articulo-rejilla">
+      <aside class="articulo-indice">
+        <div class="articulo-indice__fijo">
+          <p class="articulo-indice__titulo">En esta página</p>
+          <ul>
+            <li><a href="#posesion-efectiva">¿Qué es la posesión efectiva?</a></li>
+            <li><a href="#como-se-reparte">¿Cómo se reparte una herencia?</a></li>
+            <li><a href="#testamento">¿Para qué sirve hacer un testamento?</a></li>
+            <li><a href="#conflictos">¿Qué pasa si los herederos no se ponen de acuerdo?</a></li>
+            <li><a href="#por-que-un-abogado">¿En qué te puede ayudar un abogado?</a></li>
+          </ul>
+          <a href="https://wa.me/56956299095" class="boton boton--oro boton--ancho" target="_blank" rel="noopener">Consultar mi caso</a>
+        </div>
+      </aside>
+
+      <article class="articulo">
+          <div class="articulo__seccion" id="posesion-efectiva" data-revelar>
+            <h2>¿Qué es la posesión efectiva?</h2>
+<p>Cuando una persona fallece, sus herederos no pueden disponer de inmediato de sus bienes (vender una casa, retirar dinero del banco o transferir un auto). Primero deben obtener la <strong>posesión efectiva</strong>: el trámite que reconoce oficialmente quiénes son los herederos.</p>
+<p>El camino depende de si la persona dejó o no un testamento:</p>
+<ul>
+  <li><strong>Sin testamento (herencia intestada):</strong> se tramita ante el <strong>Registro Civil</strong>, incluso en línea con ClaveÚnica. Se debe presentar, entre otros datos, un <strong>inventario valorado de los bienes</strong>.</li>
+  <li><strong>Con testamento (herencia testada):</strong> se tramita ante los <strong>tribunales</strong> y requiere un abogado.</li>
+</ul>
+<div class="dato-clave"><p class="dato-clave__titulo">Dato clave</p>
+<p>Para saber si una persona dejó testamento, se puede consultar el <strong>Registro Nacional de Testamentos</strong> del Registro Civil. Muestra si existe y dónde se otorgó, pero no su contenido.</p></div>
+          </div>
+
+          <div class="articulo__seccion" id="como-se-reparte" data-revelar>
+            <h2>¿Cómo se reparte una herencia?</h2>
+<p>Cuando hay hijos, cónyuge o padres del fallecido, la ley protege a estos herederos (llamados <strong>legitimarios</strong>) y la herencia se divide así:</p>
+<ul>
+  <li><strong>La mitad</strong> forma las <strong>legítimas</strong>, que corresponden por ley a los herederos forzosos: los hijos (o sus descendientes), el cónyuge o conviviente civil sobreviviente y, a falta de hijos, los padres.</li>
+  <li><strong>Una cuarta parte</strong> es la <strong>cuarta de mejoras</strong>, con la que el testador puede favorecer a algunos de esos herederos.</li>
+  <li><strong>La cuarta parte restante</strong> es de <strong>libre disposición</strong>: se puede dejar a cualquier persona.</li>
+</ul>
+<p>Si no hay testamento, la ley determina quién hereda y en qué proporción. Dependiendo del monto de la herencia, también puede corresponder pagar el <strong>impuesto a la herencia</strong>.</p>
+          </div>
+
+          <div class="articulo__seccion" id="testamento" data-revelar>
+            <h2>¿Para qué sirve hacer un testamento?</h2>
+<p>Un testamento te permite decidir, en vida y dentro de los límites de la ley, cómo se repartirán tus bienes. Bien hecho, <strong>evita conflictos entre los herederos</strong> y ordena el proceso para tu familia.</p>
+<p>La forma más común es el testamento abierto otorgado ante un <strong>notario y tres testigos</strong>. Si un testamento no respeta las legítimas, los herederos afectados pueden pedir su modificación mediante la <strong>acción de reforma del testamento</strong>.</p>
+          </div>
+
+          <div class="articulo__seccion" id="conflictos" data-revelar>
+            <h2>¿Qué pasa si los herederos no se ponen de acuerdo?</h2>
+<p>Es frecuente que los herederos tengan opiniones distintas sobre qué hacer con los bienes: vender, arrendar o repartir. Cuando no hay acuerdo, existe un procedimiento para dividir la herencia (la <strong>partición</strong>). Un abogado puede ayudarte a negociar un acuerdo o a defender tu parte si el conflicto llega a juicio.</p>
+          </div>
+
+          <div class="articulo__seccion" id="por-que-un-abogado" data-revelar>
+            <h2>¿En qué te puede ayudar un abogado?</h2>
+<p>Tramitar la posesión efectiva con testamento, revisar que el inventario esté completo, redactar un testamento que refleje lo que quieres y resolver conflictos entre herederos son tareas donde un error puede costar caro. El abogado Julián Herrera Martínez te orienta desde el primer paso.</p>
+          </div>
+
+          <div class="articulo__fuentes">
+            <p class="articulo__fuentes-titulo">Fuentes oficiales consultadas</p>
+            <ul>
+              <li><a href="https://www.bcn.cl/portal/leyfacil/recurso/posesion-efectiva-sin-testamento" target="_blank" rel="noopener">Ley Fácil (BCN): Posesión efectiva sin testamento</a></li>
+              <li><a href="https://www.chileatiende.gob.cl/fichas/3364/1/pdf" target="_blank" rel="noopener">ChileAtiende: Posesión efectiva de herencias intestadas</a></li>
+              <li><a href="https://www.bcn.cl/portal/leyfacil/recurso/testamentos" target="_blank" rel="noopener">Ley Fácil (BCN): Testamentos</a></li>
+              <li><a href="https://www.chileatiende.gob.cl/fichas/13922-informe-de-inscripcion-en-el-registro-nacional-de-testamentos" target="_blank" rel="noopener">ChileAtiende: Informe de inscripción en el Registro Nacional de Testamentos</a></li>
+            </ul>
+          </div>
+
+          <p class="articulo__aviso">
+            Esta página entrega información general sobre la ley chilena y no constituye asesoría legal.
+            Cada caso es distinto: para saber qué aplica en tu situación, consulta con un abogado.
+          </p>
+      </article>
+    </div>
+
+    <!-- Llamado a la acción -->
+    <section class="articulo-cta seccion--azul">
+      <div class="contenedor articulo-cta__contenido" data-revelar>
+        <h2 class="articulo-cta__titulo">¿Necesitas ayuda con <span>tu caso</span>?</h2>
+        <p>La llamada en línea de 10:00 a 12:00 horas es gratis. Cuéntanos tu situación y te orientamos.</p>
+        <div class="articulo-cta__botones">
+          <a href="../index.html#contacto" class="boton boton--oro">Agenda tu consulta</a>
+          <a href="tel:+56956299095" class="boton boton--contorno-claro">Llamar al +56 9 5629 9095</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Otras áreas -->
+    <section class="seccion seccion--piedra">
+      <div class="contenedor">
+        <p class="antetitulo">Sigue leyendo</p>
+        <h2 class="titulo relacionadas__titulo">Otras áreas de práctica</h2>
+        <div class="relacionadas">
+          <a href="derecho-civil-y-contratos.html" class="relacionada"><span class="relacionada__titulo">Derecho civil y contratos</span><span class="relacionada__mas">Leer más →</span></a>
+          <a href="derecho-de-familia.html" class="relacionada"><span class="relacionada__titulo">Derecho de familia</span><span class="relacionada__mas">Leer más →</span></a>
+          <a href="defensa-legal-integral.html" class="relacionada"><span class="relacionada__titulo">Defensa legal integral</span><span class="relacionada__mas">Leer más →</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__columnas">
+      <div>
+        <a href="../index.html#inicio" class="logo" aria-label="Tedefiende.cl - Ir al inicio">
+          <span class="logo__te">TE</span><span class="logo__defiende">DEFIENDE</span><span class="logo__cl">.cl</span>
+        </a>
+        <p class="pie__descripcion">Defensa legal profesional y confiable. Abogado Julián Herrera Martínez.</p>
+      </div>
+      <div>
+        <p class="pie__titulo">Navegación</p>
+        <ul class="pie__lista">
+          <li><a href="../index.html#inicio">Inicio</a></li>
+          <li><a href="../index.html#areas">Áreas de práctica</a></li>
+          <li><a href="../index.html#videos">Videos</a></li>
+          <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a href="../index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="pie__titulo">Contacto</p>
+        <ul class="pie__lista">
+          <li>Caupolicán 567, Concepción Centro</li>
+          <li><a href="tel:+56956299095">+56 9 5629 9095</a></li>
+          <li><a href="mailto:contacto@tedefiende.cl">contacto@tedefiende.cl</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61574104022977" target="_blank" rel="noopener">Facebook Tedefiende.cl</a></li>
+          <li><a href="https://www.tiktok.com/@estudiojuridicobiobio" target="_blank" rel="noopener">TikTok @estudiojuridicobiobio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__legal">
+      <!-- El año se completa solo con js/main.js -->
+      <p>&copy; <span id="anio"></span> Tedefiende.cl · Julián Herrera Martínez. Todos los derechos reservados.</p>
+      <a href="#arriba">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <div class="asistente" id="asistente">
+    <!-- Globo de saludo que aparece a los pocos segundos -->
+    <button class="asistente__burbuja" id="asistenteBurbuja" type="button">
+      Hola 👋 ¿Te ayudo con tu caso?
+    </button>
+
+    <!-- Ventana del chat -->
+    <section class="asistente__panel" id="asistentePanel" role="dialog" aria-label="Asistente virtual de Tedefiende.cl" aria-hidden="true">
+      <header class="asistente__cabecera">
+        <span class="asistente__avatar" aria-hidden="true"><svg><use href="#emblema"/></svg></span>
+        <div class="asistente__identidad">
+          <p class="asistente__nombre">Asistente Tedefiende</p>
+          <p class="asistente__estado">Responde al instante</p>
+        </div>
+        <button class="asistente__accion" id="asistenteReiniciar" type="button" aria-label="Empezar de nuevo" title="Empezar de nuevo">↻</button>
+        <button class="asistente__accion" id="asistenteCerrar" type="button" aria-label="Cerrar asistente" title="Cerrar">✕</button>
+      </header>
+
+      <div class="asistente__mensajes" id="asistenteMensajes" aria-live="polite"></div>
+      <div class="asistente__opciones" id="asistenteOpciones"></div>
+
+      <form class="asistente__entrada" id="asistenteFormulario" autocomplete="off">
+        <label class="solo-lectores" for="asistenteTexto">Escribe tu mensaje</label>
+        <input type="text" id="asistenteTexto" placeholder="Escribe tu mensaje…" maxlength="300">
+        <button type="submit" aria-label="Enviar mensaje">
+          <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </button>
+      </form>
+
+      <p class="asistente__aviso">
+        Asistente automático: entrega información general y no reemplaza la asesoría de un abogado.
+        No guardamos tus datos.
+      </p>
+    </section>
+
+    <!-- Botón flotante que abre y cierra el chat -->
+    <button class="asistente__lanzador" id="asistenteLanzador" type="button" aria-label="Abrir asistente virtual" aria-expanded="false" aria-controls="asistentePanel">
+      <svg class="asistente__lanzador-emblema" aria-hidden="true"><use href="#emblema"/></svg>
+      <span class="asistente__lanzador-cerrar" aria-hidden="true">✕</span>
+    </button>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/asistente.js"></script>
+</body>
+</html>
